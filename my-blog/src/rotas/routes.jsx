@@ -10,7 +10,7 @@ function AppRoutes(){
             <BrowserRouter>
                 <Routes>
                     <Route Component={Home} path="/" exact/>
-                    <Route Compoenent={Post} path="/post"/>
+                    <Route Component={Post} path="/post"/>
                 </Routes>
             </BrowserRouter>
         </>

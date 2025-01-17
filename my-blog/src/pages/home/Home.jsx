@@ -5,7 +5,7 @@ function Home(){
     return(
         <>
             <h1>Home</h1>
-            <Link to="../post/Post.jsx">
+            <Link to="/post">
                 <button>Nova publicação</button>
             </Link>
         </>

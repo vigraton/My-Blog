@@ -35,7 +35,7 @@ function Post(){
             placeholder="Escreva seu post..."
             style={{ width: '500px', height: '40px', fontSize: '12px' }}
             ></input>
-            <button onClick={AddPost}>Publicar</button>
+            <button id="public-btn" onClick={AddPost}>Publicar</button>
         </>
     )
 }

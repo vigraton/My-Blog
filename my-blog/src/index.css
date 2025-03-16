@@ -1,0 +1,25 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+
+h1{
+    text-align: center;
+}
+
+button{
+    background-color:rgb(123, 0, 255);
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+    border-color:rgb(123, 0, 255);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#public-btn{
+    background-color: white;
+    color: rgb(123, 0, 255);
+    border-radius: 5px;
+}

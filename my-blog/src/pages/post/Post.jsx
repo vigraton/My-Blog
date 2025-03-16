@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import React, { useState } from "react";
 
 function Post(){
-
+    const [post, setPost] = useState("Nhoi");
     const [newPost, setNewPost] = useState("");
 
     function handleInputChange(event){
@@ -20,7 +20,11 @@ function Post(){
 
     function EditPost(){}
 
-    function DeletePost(){}
+    function DeletePost(index){
+        const updatePost = post.filter((_, i) => i !== index);
+        setPost(updatePost);
+        // Não faço ideia do que isso significa ;-;
+    }
 
     return(
         <>

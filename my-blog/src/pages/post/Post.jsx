@@ -1,47 +1,51 @@
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 
-function Post(){
-    const [post, setPost] = useState("Nhoi");
-    const [newPost, setNewPost] = useState("");
+function Post() {
+  const [post, setPost] = useState("Nhoi");
+  const [newPost, setNewPost] = useState("");
 
-    function handleInputChange(event){
-        setNewPost(event.target.value);
+  function handleInputChange(event) {
+    setNewPost(event.target.value);
+  }
+
+  function AddPost() {
+    if (newPost.trim() !== "") {
+      setNewPost((p) => [...p, newPost]);
+      setNewPost("");
     }
+  }
 
-    function AddPost(){
-        if(newPost.trim() !== ""){
-            setNewPost(p => [...p, newPost]);
-            setNewPost("");
-        }
-    }
+  function SavePost() {}
 
-    function SavePost(){}
+  function EditPost() {}
 
-    function EditPost(){}
+  function DeletePost(index) {
+    const updatePost = post.filter((_, i) => i !== index);
+    setPost(updatePost);
+    // Não faço ideia do que isso significa ;-;
+  }
 
-    function DeletePost(index){
-        const updatePost = post.filter((_, i) => i !== index);
-        setPost(updatePost);
-        // Não faço ideia do que isso significa ;-;
-    }
+  return (
+    <>
+      <h1>Post</h1>
 
-    return(
-        <>
-            <h1>Post</h1>
+      <Link to="/">
+        <button>Voltar</button>
+      </Link>
+      <br></br>
+      <br></br>
 
-            <Link to="/">
-                <button>Voltar</button>
-            </Link><br></br><br></br>
-            
-            <input 
-            onChange={handleInputChange}
-            placeholder="Escreva seu post..."
-            style={{ width: '500px', height: '40px', fontSize: '12px' }}
-            ></input>
-            <button id="public-btn" onClick={AddPost}>Publicar</button>
-        </>
-    )
+      <input
+        onChange={handleInputChange}
+        placeholder="Escreva seu post..."
+        style={{ width: "500px", height: "40px", fontSize: "12px" }}
+      ></input>
+      <button id="public-btn" onClick={AddPost}>
+        Publicar
+      </button>
+    </>
+  );
 }
 
-export default Post
+export default Post;

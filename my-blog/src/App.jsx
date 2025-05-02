@@ -5,12 +5,12 @@ import AppRoutes from "./rotas/routes.jsx";
 function App() {
   return (
     <>
-      <AppRoutes/>
+      <AppRoutes />
       <BrowserRouter>
         <Link to="post"></Link>
       </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

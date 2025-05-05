@@ -2,7 +2,7 @@ import React from "react";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 
 import Home from "../pages/home/page";
-import Post from "../pages/post/page";
+import MyPost from "../pages/my-post/page";
 
 function AppRoutes() {
   return (
@@ -10,7 +10,7 @@ function AppRoutes() {
       <BrowserRouter>
         <Routes>
           <Route Component={Home} path="/" exact />
-          <Route Component={Post} path="/post" />
+          <Route Component={MyPost} path="/my-post" />
         </Routes>
       </BrowserRouter>
     </>

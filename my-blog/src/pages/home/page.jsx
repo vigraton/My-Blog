@@ -41,7 +41,27 @@ function Home() {
         </div>
       </header>
 
-      <main></main>
+      <main className="flex-1 py-10 bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px:8">
+          <div className="flex justify-between items-center mb-8">
+            <h1 className="text-3xl font-bold">Latest Posts</h1>
+            <div className="flex gap-2">
+              <Button variant="outline" size="sm">
+                All
+              </Button>
+              <Button variant="ghost" size="sm">
+                Development
+              </Button>
+              <Button variant="ghost" size="sm">
+                Design
+              </Button>
+              <Button variant="ghost" size="sm">
+                React
+              </Button>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
   );
 }

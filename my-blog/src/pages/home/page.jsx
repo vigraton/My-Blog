@@ -2,8 +2,19 @@ import { Link } from "react-router-dom";
 import { Search } from "lucide-react";
 import { Input } from "../../@/components/ui/input";
 import { Button } from "../../@/components/ui/button";
+import PostCard from "../../@/components/ui/post-card";
 
 function Home() {
+  const posts = {
+    id: 1,
+    title: "Getting started with Next.js",
+    excerpt: "Learn how to build modern web applications with React and Vite.",
+    date: "May 1, 2025",
+    author: "Jane Smith",
+    category: "Development",
+    imageUrl: "https://placehold.co/400x200/png",
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <header className="border-b ">
@@ -59,6 +70,10 @@ function Home() {
                 React
               </Button>
             </div>
+          </div>
+
+          <div>
+            <PostCard post={posts} />
           </div>
         </div>
       </main>

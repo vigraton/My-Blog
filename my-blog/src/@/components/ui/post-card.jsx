@@ -26,13 +26,13 @@ export default function PostCard({ post }) {
         <img
           src={post.imageUrl}
           alt={post.title}
-          className="fill h-48 object-cover transition-transform hover:scale-105 duration-300"
+          className="w-full h-48 object-cover transition-transform hover:scale-105 duration-300"
         ></img>
         <Badge className="absolute top-48 right-170">{post.category}</Badge>
       </Link>
       <CardContent>
         <CardHeader>
-          <h1 className="font-bold text-2xl">{post.title}</h1>
+          <h1 className="flex font-bold text-2xl">{post.title}</h1>
         </CardHeader>
 
         <section>
@@ -40,12 +40,17 @@ export default function PostCard({ post }) {
             {post.excerpt}
           </CardDescription>
 
-          <section className={"flex flex-row gap-4"}>
-            <section className={"flex flex-row py-2"}>
+          <section className={"flex flex-row gap-4 text-muted-foreground"}>
+            <section
+              className={
+                "flex flex-row space-x-1 py-2 justify-content: items-center"
+              }
+            >
               <Calendar className={"w-4 h-4"} />
               <CardDescription>{post.date}</CardDescription>
             </section>
-            <section className="flex flex-row">
+
+            <section className="flex flex-row  space-x-1 justify-content: items-center">
               <User className={"w-4 h-4"} />
               <p>{post.author}</p>
             </section>

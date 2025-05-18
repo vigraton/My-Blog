@@ -42,9 +42,15 @@ export default function MyPost() {
               Lifestyle
             </Link>
           </div>
-          <Button variant="ghost" size="sm">
-            Sign In
-          </Button>
+
+          <div>
+            <Button variant="ghost" size="sm">
+              Sign In
+            </Button>
+            <Button variant="ghost">
+              <a href="../">Home</a>
+            </Button>
+          </div>
         </div>
       </nav>
 

@@ -3,6 +3,7 @@ import { Search } from "lucide-react";
 import { Input } from "../../@/components/ui/input";
 import { Button } from "../../@/components/ui/button";
 import PostCard from "../../@/components/ui/post-card";
+import MyPost from "../my-post/page";
 
 function Home() {
   const posts = [
@@ -60,6 +61,9 @@ function Home() {
             </Button>
             <Button asChild>
               <Link href="/sign-up">Sing up</Link>
+            </Button>
+            <Button variant="secondary">
+              <a href="../my-post">New Post</a>
             </Button>
           </div>
         </div>

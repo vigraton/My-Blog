@@ -3,7 +3,9 @@ import { Search } from "lucide-react";
 import { Input } from "../../@/components/ui/input";
 import { Button } from "../../@/components/ui/button";
 import PostCard from "../../@/components/ui/post-card";
-import MyPost from "../my-post/page";
+import { useState } from "react";
+import AuthModal from "../../@/components/ui/auth";
+
 
 function Home() {
   const posts = [
@@ -28,6 +30,7 @@ function Home() {
       imageUrl: "https://placehold.co/400x200/png",
     },
   ];
+  const [authModal, setAuthModal] = useState(false)
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -59,9 +62,16 @@ function Home() {
             <Button variant="outline" asChild>
               <Link href="/sign-in">Sing In</Link>
             </Button>
-            <Button asChild>
+            <Button onClick={() => setAuthModal(true)}>
               <Link href="/sign-up">Sing up</Link>
             </Button>
+
+            {authModal && (
+              <div className="absolute justify-center">
+                <AuthModal />
+              </div>
+            )}
+
             <Button variant="secondary">
               <a href="../my-post">New Post</a>
             </Button>
@@ -89,14 +99,11 @@ function Home() {
             </div>
           </div>
 
-          <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {posts.map((post) => (
               <PostCard key={post.id} post={post} />
             ))}
-          </section>
-
-          {/* mt muda a altura entre os botões e o card acima
-          mr muda o espaçamento entre os botões. */}
+          </section> */}
 
           <section className="mt-10 flex justify-center">
             <Button variant="outline" className="mr-2">
@@ -106,9 +113,6 @@ function Home() {
           </section>
         </div>
       </main>
-
-      {/* border-t: border top!
-      border-b: border-bottom */}
 
       <footer className="bg-muted py-6 border-t">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

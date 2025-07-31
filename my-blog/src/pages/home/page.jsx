@@ -6,7 +6,6 @@ import PostCard from "../../@/components/ui/post-card";
 import { useState } from "react";
 import AuthModal from "../../@/components/ui/auth";
 
-
 function Home() {
   const posts = [
     {
@@ -30,54 +29,56 @@ function Home() {
       imageUrl: "https://placehold.co/400x200/png",
     },
   ];
-  const [authModal, setAuthModal] = useState(false)
+  const [authModal, setAuthModal] = useState(false);
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <header className="border-b ">
-        <div className="container mx-auto py-4 px-4 sm:px-6 lg:px-8 flex flex-row">
-          <div className=" flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <Link href="/" className="flex items-center">
-              <div
-                className="w-10 h-10 bg-primary rounded-md 
+    <div className="h-screen w-screen flex flex-col">
+      <div className="flex justify-between items-center">
+        <header className="border-b w-full">
+          <div className="container mx-auto py-4 px-4 sm:px-6 lg:px-8 flex flex-row">
+            <div className=" flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+              <Link href="/" className="flex items-center">
+                <div
+                  className="w-10 h-10 bg-primary rounded-md 
                 flex items-center justify-center text-primary-foreground font-bold text-xl"
-              >
-                B
-              </div>
-              <span className="ml-2 text-xl font-bold">BlogHub</span>
-            </Link>
-          </div>
+                >
+                  B
+                </div>
+                <span className="ml-2 text-xl font-bold">BlogHub</span>
+              </Link>
+            </div>
 
-          <div className="flex-1 max-w-md mx-auto md:mx-0 md:ml-8">
-            <div className="relative px-4">
-              <Search className="absolute left-6 top-2.5 h-4 w-4 text-muted-foreground" />
-              <Input
-                placeholder="Search posts..."
-                className="w-full pl-8 bg-background "
-              />
+            <div className="flex-1 justify-center max-w-md mx-auto md:mx-0 md:ml-8">
+              <div className="relative px-4">
+                <Search className="absolute left-6 top-2.5 h-4 w-4 text-muted-foreground" />
+                <Input
+                  placeholder="Search posts..."
+                  className="w-full pl-8 bg-background "
+                />
+              </div>
+            </div>
+
+            <div className="flex flex-row justify-end md:justify-end gap-4 mt-4 md:mt-0">
+              <Button variant="outline" asChild>
+                <Link href="/sign-in">Sing In</Link>
+              </Button>
+              <Button onClick={() => setAuthModal(true)}>
+                <Link href="/sign-up">Sing up</Link>
+              </Button>
+
+              {authModal && (
+                <div className="absolute justify-center">
+                  <AuthModal />
+                </div>
+              )}
+
+              <Button variant="secondary">
+                <a href="../my-post">New Post</a>
+              </Button>
             </div>
           </div>
-
-          <div className="flex flex-row justify-center md:justify-end gap-4 mt-4 md:mt-0">
-            <Button variant="outline" asChild>
-              <Link href="/sign-in">Sing In</Link>
-            </Button>
-            <Button onClick={() => setAuthModal(true)}>
-              <Link href="/sign-up">Sing up</Link>
-            </Button>
-
-            {authModal && (
-              <div className="absolute justify-center">
-                <AuthModal />
-              </div>
-            )}
-
-            <Button variant="secondary">
-              <a href="../my-post">New Post</a>
-            </Button>
-          </div>
-        </div>
-      </header>
+        </header>
+      </div>
 
       <main className="flex-1 py-10 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px:8">

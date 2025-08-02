@@ -2,38 +2,40 @@ import { Button } from "./button";
 import { Card } from "./card";
 import { Input } from "./input";
 import { useState, useEffect } from "react";
+import { IoIosClose } from "react-icons/io";
 
 export default function AuthModal() {
   const [senha, setSenha] = useState("");
   const [nome, setNome] = useState("");
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  function handleRegister() {
+    const saveName = () => {
+      localStorage.setItem("Name stored", nome);
+    };
+    saveName();
 
-    localStorage.setItem("Name stored", nome);
-    setNome(true);
-
-    localStorage.setItem("Password stored", senha);
-    setSenha(true);
-
-    if (!nome || !senha) {
-      alert("Preencha o campo");
-    }
+    const savePassword = () => {
+      localStorage.setItem("Password stored", senha)
+    };
+    savePassword();
   }
+
+  const onClose = () => {}
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = "";
     };
-  });
+  }, []);
 
   return (
-    <div className="bg-slate-100">
+    <>
       <Card className="flex w-[350px] h-[300px] justify-center translate-y-1/2">
         <h2 className="font-bold items-center justify-center flex text-xl">
           Register in our blog
         </h2>
+        <IoIosClose className="text-gray-600 z-20 flex" onClick={onClose}/>
         <div className="flex flex-col gap-y-4 p-6">
           <Input
             placeholder="Name"
@@ -45,11 +47,11 @@ export default function AuthModal() {
             placeholder="Password"
             type="password"
             value={senha}
-            onChane={(e) => setSenha(e.target.value)}
+            onChange={(e) => setSenha(e.target.value)}
           />
-          <Button type="submit">Register</Button>
+          <Button type="submit" onClick={handleRegister}>Register</Button>
         </div>
       </Card>
-    </div>
+    </>
   );
 }

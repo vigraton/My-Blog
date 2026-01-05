@@ -5,17 +5,17 @@ import { useState, useEffect } from "react";
 import { IoIosClose } from "react-icons/io";
 
 export default function AuthModal() {
-  const [senha, setSenha] = useState("");
-  const [nome, setNome] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
 
   function handleRegister() {
     const saveName = () => {
-      localStorage.setItem("Name stored", nome);
+      localStorage.setItem("Name stored", name);
     };
     saveName();
 
     const savePassword = () => {
-      localStorage.setItem("Password stored", senha)
+      localStorage.setItem("Password stored", password)
     };
     savePassword();
   }
@@ -40,14 +40,14 @@ export default function AuthModal() {
           <Input
             placeholder="Name"
             type="text"
-            value={nome}
-            onChange={(e) => setNome(e.target.value)}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
           <Input
             placeholder="Password"
             type="password"
-            value={senha}
-            onChange={(e) => setSenha(e.target.value)}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <Button type="submit" onClick={handleRegister}>Register</Button>
         </div>

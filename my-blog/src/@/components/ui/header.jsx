@@ -43,7 +43,7 @@ export default function Header() {
             </Button>
 
             {authModal && (
-              <div className="absolute justify-center">
+              <div className="inset-0 fixed justify-items-center min-h-screen min-w-screen z-50 bg-blue-100">
                 <AuthModal />
               </div>
             )}

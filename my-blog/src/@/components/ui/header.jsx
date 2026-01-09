@@ -7,6 +7,9 @@ import { useState } from "react";
 
 export default function Header() {
   const [authModal, setAuthModal] = useState(false);
+  const onOpen = () => {
+    window.open();
+  };
 
   return (
     <>
@@ -44,7 +47,7 @@ export default function Header() {
 
             {authModal && (
               <div className="inset-0 fixed justify-items-center min-h-screen min-w-screen z-50 bg-blue-100">
-                <AuthModal />
+                <AuthModal onOpen={onOpen} />
               </div>
             )}
 

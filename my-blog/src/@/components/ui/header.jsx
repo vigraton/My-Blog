@@ -6,10 +6,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 export default function Header() {
-  const [authModal, setAuthModal] = useState(false);
-  const onOpen = () => {
-    window.open();
-  };
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
 
   return (
     <>
@@ -19,8 +16,7 @@ export default function Header() {
             <Link href="/" className="flex items-center">
               <div
                 className="w-10 h-10 bg-primary rounded-md 
-                      flex items-center justify-center text-primary-foreground font-bold text-xl"
-              >
+                      flex items-center justify-center text-primary-foreground font-bold text-xl">
                 B
               </div>
               <span className="ml-2 text-xl font-bold">BlogHub</span>
@@ -41,15 +37,14 @@ export default function Header() {
             <Button variant="outline" asChild>
               <Link href="/sign-in">Sing In</Link>
             </Button>
-            <Button onClick={() => setAuthModal(true)}>
+            <Button onClick={() => setIsAuthModalOpen(true)}>
               <Link href="/sign-up">Sing up</Link>
             </Button>
 
-            {authModal && (
-              <div className="inset-0 fixed justify-items-center min-h-screen min-w-screen z-50 bg-blue-100">
-                <AuthModal onOpen={onOpen} />
-              </div>
-            )}
+            <AuthModal
+              IsModalOpen={isAuthModalOpen}
+              setIsModalOpen={setIsAuthModalOpen}
+            />
 
             <Button variant="secondary">
               <a href="../my-post">New Post</a>
